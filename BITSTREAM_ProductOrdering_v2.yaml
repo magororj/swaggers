@@ -1,0 +1,1862 @@
+openapi: 3.0.1
+info:
+  title: ProductOrdering
+  version: 2.11.1
+tags:
+  - name: Create Order
+  - name: Update Order
+  - name: Cancel Order
+  - name: Notification
+paths:
+  /productOrder:
+    post:
+      tags:
+        - Create Order
+      summary: Request Opening Order
+      operationId: Request Opening Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createOrderRequest"
+            examples:
+              Installation Order Type FTTH:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03:00"
+                    type: Instalacao
+                    infraType: FTTH
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: varejo
+                      fantasyName: InterHome Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    appointment:
+                      hasSlot: true
+                      date: "2021-05-05T08:00:00"
+                      mandatoryType: Obrigatorio
+                      workOrderId: SA-562403
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Do lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: adicionar
+              Installation Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03:00"
+                    type: Instalacao
+                    infraType: FTTP
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    appointment:
+                      hasSlot: false
+                      date: ""
+                      mandatoryType: Permitido
+                      workOrderId: ""
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Proximo a padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: adicionar
+              Removal Order Type FTTH:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Retirada
+                    infraType: FTTH
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: varejo
+                      fantasyName: InterHome Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    appointment:
+                      hasSlot: true
+                      date: "2020-11-13T16:20:00"
+                      mandatoryType: Obrigatorio
+                      workOrderId: SA-562403
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Do lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: remover
+              Removal Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Retirada
+                    infraType: FTTP
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    appointment:
+                      hasSlot: false
+                      date: ""
+                      mandatoryType: Permitido
+                      workOrderId: ""
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Do lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: remover
+              Total Block Order Type FTTH:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Bloqueio
+                    infraType: FTTH
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: varejo
+                      fantasyName: InterHome Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: bloquear total
+              Total Block Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Bloqueio
+                    infraType: FTTP
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: bloquear total
+              Partial Block Order Type FTTH:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Bloqueio
+                    infraType: FTTH
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: varejo
+                      fantasyName: InterHome Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: bloquear parcial
+              Partial Block Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Bloqueio
+                    infraType: FTTP
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: bloquear parcial
+              Unblock Order Type FTTH:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Desbloqueio
+                    infraType: FTTH
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: varejo
+                      fantasyName: InterHome Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: desbloquear total
+              Unblock Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Desbloqueio
+                    infraType: FTTP
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_200MB
+                          action: desbloquear total
+              Associate CPE Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 2310
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2020-10-22T14:00:00-03:00"
+                    type: AssociarCPE
+                    infraType: FTTP
+                    customer:
+                      name: V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    equipments:
+                      equipment:
+                        - serialNumber: ALCLF718RF05
+                          type: ONT
+                          code: 616551
+                          action: adicionar
+              Speed Modification Order Type FTTH:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Modificacao de Velocidade
+                    infraType: FTTH
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: varejo
+                      fantasyName: InterHome Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_1000MB
+                          action: adicionar
+                        - catalogId: BL_200MB
+                          action: remover
+              Speed Modification Order Type FTTP:
+                value:
+                  order:
+                    correlationOrder: 9
+                    associatedDocument: VTT001
+                    associatedDocumentDate: "2021-06-09T18:20:53-03"
+                    type: Modificacao de Velocidade
+                    infraType: FTTP
+                    customer:
+                      name: Sandbox V.tal
+                      subscriberId: SVTAL001
+                      businessUnity: empresarial
+                      fantasyName: InterCorp Internet
+                      phoneNumber:
+                        phoneNumbers:
+                          - "000000000"
+                          - ""
+                          - ""
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+                    addresses:
+                      address:
+                        id: 14393
+                        inventoryId: 1766156
+                        reference: Ao lado da padaria
+                        complement:
+                          complements:
+                            - type: ES
+                              value: ARC201
+                    products:
+                      product:
+                        - catalogId: BL_1000MB
+                          action: adicionar
+                        - catalogId: BL_200MB
+                          action: remover
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/createOrderResponse"
+              example:
+                control:
+                  type: S
+                  code: 201
+                  message: Created
+                order:
+                  id: 1
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/control"
+              examples:
+                General Bad Request:
+                  value:
+                    control:
+                      type: E
+                      code: 400
+                      message: OSB Validate action failed validation
+                Catalog ID with greater speed than allowed:
+                  value:
+                    control:
+                      type: E
+                      code: 400
+                      message: O campo Catalog ID está com velocidade superior a permitida
+                Catalog ID out of standard:
+                  value:
+                    control:
+                      type: E
+                      code: 400
+                      message: Campo Catalog ID fora do padrão esperado
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/Unavailable"
+        "504":
+          $ref: "#/components/responses/Timeout"
+  /productOrder/{order.Id}:
+    patch:
+      tags:
+        - Update Order
+      summary: Patch Product Order By Id
+      operationId: Patch Product Order By Id
+      parameters:
+        - name: order.Id
+          in: path
+          description: Id da ordem do serviço
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/updateOrderRequest"
+            examples:
+              Schedule pendency resolution:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    appointment:
+                      hasSlot: true
+                      date: "2021-06-07T12:47:00"
+                      mandatoryType: Permitido
+                      workOrderId: ""
+                    issue:
+                      code: 7029
+                      observation: Resolução de pendência de agendamento
+                      userId: ""
+                      updateDate: "2021-12-09T15:20:00"
+                      action: fechar
+              Closed house pendency resolution:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    appointment:
+                      hasSlot: true
+                      date: "2021-06-07T12:47:00"
+                      mandatoryType: Permitido
+                      workOrderId: ""
+                    issue:
+                      code: 7016
+                      observation: Reagendamento por ausência
+                      userId: ""
+                      updateDate: "2021-12-09T15:20:00"
+                      action: fechar
+                    customer:
+                      workContact: 
+                        name: 'sindico Vtal'
+                        email: 'sindicovtal@vtal.com'
+                        phone: '21999900000'
+              Provisioning task resolution:
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    task:
+                      id: 132146546546546
+                      type: "CONFIGURACAO_NAAS_ACS"
+              Network pendency resolution (OK):
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    issue:
+                      code: 7111
+                      observation: Resolução de pendência de rede
+                      userId: ""
+                      updateDate: "2021-12-09T15:20:00"
+                      action: fechar
+              Network pendency resolution (Pending):
+                value:
+                  order:
+                    correlationOrder: 10
+                    associatedDocument: VTT001
+                    appointment:
+                      hasSlot: true
+                      date: "2021-06-07T12:47:00"
+                      mandatoryType: Obrigatorio
+                      workOrderId: SA-654637
+                    issue:
+                      code: 7111
+                      observation: Resolução de pendência de rede
+                      userId: ""
+                      updateDate: "2021-12-09T15:20:00"
+                      action: redirecionar
+      responses:
+        "200":
+          $ref: "#/components/responses/Success"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/Unavailable"
+        "504":
+          $ref: "#/components/responses/Timeout"
+  /cancelProductOrder/{order.Id}:
+    post:
+      tags:
+        - Cancel Order
+      summary: Cancel Product Order By Id
+      operationId: Cancel Product Order By Id
+      parameters:
+        - name: order.Id
+          in: path
+          description: Id da ordem
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cancelOrderRequest"
+            example:
+              order:
+                associatedDocument: VTT001
+                customer:
+                  subscriberId: SVTAL001
+      responses:
+        "200":
+          $ref: "#/components/responses/Success"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "423":
+          description: Locked
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/control"
+              example:
+                control:
+                  type: E
+                  code: 423
+                  message: Agendamento não pode ser alterado
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/Unavailable"
+        "504":
+          $ref: "#/components/responses/Timeout"
+  /listener/productOrderStateChangeEvent:
+    post:
+      tags:
+        - Notification
+      summary: State Change Event By Client
+      operationId: State Change Event By Client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationEvent"
+            examples:
+              Closing Notification:
+                value:
+                  notification:
+                    date: "2020-12-16T10:09:31-03:00"
+                    customer:
+                      subscriberId: "234567654"
+                    order:
+                      id: 1
+                      correlationOrder: 9
+                      associatedDocument: VTT001
+                      type: Encerramento
+                      code: 0
+                      description: BA de Campo Aberto com Sucesso
+                      lostEquipment: "True"
+                      resource:
+                        gponAccess: A000009QS
+                        fiberPath:
+                          items:
+                            item:
+                              - name: enderecoCDO
+                                value: >-
+                                  RUA GENERAL RENATO PAQUET, 199, BARRA DA
+                                  TIJUCA, RIO DE JANEIRO - RJ 22793913
+                              - name: producer_olt
+                                value: HUAWEI
+                              - name: CDO
+                                value: CDOI-4704-PTP.FO.O:45
+                              - name: CDO
+                                value: CDOI-4704-PTP.FO.I:S32_2_IN 1
+                              - name: estacao
+                                value: BEL
+              Closing Notification (ontOwner Tenant - Install):
+                value:
+                  notification:
+                    date: "2020-12-16T10:09:31-03:00"
+                    customer:
+                      subscriberId: "234567654"
+                    order:
+                      id: 1
+                      correlationOrder: 9
+                      associatedDocument: "VTT001"
+                      type: "Encerramento"
+                      code: 0
+                      description: "BA de campo encerrado com sucesso"
+                      resource:
+                        gponAccess: "A000009QS"
+                        devices:
+                          device:
+                            - category: "ONT"
+                              type: "PhsysicalResource"
+                              description: "Customer Premises Equipment - ONT device"
+                              state: "completed"
+                              usageState: "active"
+                              startOperatingDate: "2020-12-16T10:09:31-03:00"
+                              resourceCharacteristic:
+                                - name: "serialNumber"
+                                  value: "0251990119989"
+                                - name: "firmware"
+                                  value: "FW-XPTO-123"
+                                - name: "manufacturer"
+                                  value: "Sagemcom"
+                                - name: "model"
+                                  value: "F@ST 5340 TFN"
+                        fiberPath:
+                          items:
+                            item:
+                              - name: "enderecoCDO"
+                                value: "RUA GENERAL RENATO PAQUET, 199, BARRA DA TIJUCA, RIO DE JANEIRO - RJ 22793913"
+                              - name: "producer_olt"
+                                value: "HUAWEI"
+                              - name: "CDO"
+                                value: "CDOI-4704-PTP.FO.O:45"
+                              - name: "CDO"
+                                value: "CDOI-4704-PTP.FO.I:S32_2_IN 1"
+                              - name: "estacao"
+                                value: "BEL"
+              Closing Notification (ontOwner Tenant - Withdrawal):
+                value:
+                  notification:
+                    date: "2020-12-16T10:09:31-03:00"
+                    customer:
+                      subscriberId: "234567654"
+                    order:
+                      id: 1
+                      correlationOrder: 9
+                      associatedDocument: "VTT001"
+                      type: "Encerramento"
+                      code: 0
+                      description: "BA de campo encerrado com sucesso"
+                      resource:
+                        gponAccess: "A000009QS"
+                        devices:
+                          device:
+                            - category: "ONT"
+                              type: "PhsysicalResource"
+                              description: "Customer Premises Equipment - ONT device"
+                              usageState: "inactive"
+                              resourceCharacteristic:
+                                - name: "serialNumber"
+                                  value: "0251990119989"
+                                - name: "firmware"
+                                  value: "FW-XPTO-123"
+                                - name: "manufacturer"
+                                  value: "Sagemcom"
+                                - name: "model"
+                                  value: "F@ST 5340 TFN"
+              Cancel Notification:
+                value:
+                  notification:
+                    date: "2021-09-29T18:42:24.641-03:00"
+                    order:
+                      id: 1
+                      correlationOrder: 9
+                      associatedDocument: VTT001
+                      type: Cancelamento
+                      code: 0
+                      description: Cancelamento por inviabilidade
+              ONT already in use:
+                value:
+                  notification:
+                    date: "2021-10-26T17:53:25.497-03:00"
+                    customer:
+                      subscriberId: "234567654"
+                    order:
+                      id: 1
+                      correlationOrder: 9
+                      associatedDocument: VTT001
+                      type: Encerramento
+                      code: -1
+                      description: O Equipamento já está em uso por outro cliente
+                      lostEquipment: "True"
+                      resource:
+                        fiberPath:
+                          items: ""
+      responses:
+        "204":
+          description: Operação realizada com sucesso
+        "400":
+          description: BadRequest
+        "401":
+          description: Unauthorized
+        "500":
+          description: ServerError
+        "503":
+          description: Unavailable
+        "504":
+          description: Timeout
+  /listener/productOrderCreateEvent:
+    post:
+      tags:
+        - Notification
+      summary: Product Order Create Event By Client
+      operationId: Product Order Create Event By Client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationEvent"
+            example:
+              notification:
+                date: "2021-06-05T20:23:29-03:00"
+                order:
+                  id: 1
+                  associatedDocument: VTT001
+                  correlationOrder: 1
+      responses:
+        "204":
+          description: Operação realizada com sucesso
+        "400":
+          description: BadRequest
+        "401":
+          description: Unauthorized
+        "500":
+          description: ServerError
+        "503":
+          description: Unavailable
+        "504":
+          description: Timeout
+  /listener/productOrderInformationRequiredEvent:
+    post:
+      tags:
+        - Notification
+      summary: Product Order Information Required Event
+      operationId: Product Order Information Required Event
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationEvent"
+            examples:
+              Notification client pendency:
+                value:
+                  notification:
+                    order:
+                      id: 27897
+                      correlationOrder: 9
+                      associatedDocument: VTT001
+                      issue:
+                        code: 7029
+                        description: Pendencia de agendamento
+                        type: CLIENTE
+                        observation: ""
+                        userId: ""
+                        updateDate: "2021-02-17T17:19:50-03:00"
+                        action: abrir
+                        task: ""
+                        fieldActivity: True
+                        reason: "PROJETO"
+              Notification technical pendency:
+                value:
+                  notification:
+                    order:
+                      id: 17232
+                      correlationOrder: 10276
+                      associatedDocument: VTT001
+                      issue:
+                        code: 7030
+                        description: Pendencia de agendamento
+                        type: TECNICA
+                        observation: ""
+                        userId: ""
+                        updateDate: "2022-02-25T11:50:50.566-03:00"
+                        action: abrir
+                        task: ""
+                        fieldActivity: False
+                        reason: "MANUTENÇÃO"
+              Notification client pendency (network issue):
+                value:
+                  notification:
+                    order:
+                      id: 27897
+                      correlationOrder: 9
+                      associatedDocument: VTT001
+                      issue:
+                        code: 7111
+                        description: VERIFICAR BACKBONE TENANT
+                        type: CLIENTE
+                        observation: ""
+                        userId: ""
+                        updateDate: "2021-02-17T17:19:50-03:00"
+                        action: abrir
+                        task: ""
+                        fieldActivity: True
+                        reason: "PROJETO"
+                      resource:
+                        devices:
+                          device:
+                            - category: "ONT"
+                              type: "PhsysicalResource"
+                              description: "Customer Premises Equipment - ONT device"
+                              state: "completed"
+                              usageState: "active"
+                              startOperatingDate: "2020-12-16T10:09:31-03:00"
+                              resourceCharacteristic:
+                                - name: "serialNumber"
+                                  value: "0251990119989"
+                                - name: "firmware"
+                                  value: "1234567894567"
+                                - name: "manufacturer"
+                                  value: "Sagemcom"
+                                - name: "model"
+                                  value: "F@ST 5340 TFN"
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+        "401":
+          description: Unauthorized
+        "500":
+          description: ServerError
+        "503":
+          description: Unavailable
+        "504":
+          description: Timeout
+  /listener/cancelProductOrderCreateEvent:
+    post:
+      tags:
+        - Notification
+      summary: Cancel Product Order Create Event By Client
+      operationId: Cancel Product Order Create Event By Client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationEvent"
+            example:
+              notification:
+                order:
+                  associatedDocument: VTT001
+                  id: 1
+      responses:
+        "204":
+          description: Operação realizada com sucesso
+        "400":
+          description: BadRequest
+        "401":
+          description: Unauthorized
+        "500":
+          description: ServerError
+        "503":
+          description: Unavailable
+        "504":
+          description: Timeout
+  /listener/productOrderInProvisioning:
+    post:
+      tags:
+        - Notification
+      summary: Product Order In Provisioning
+      operationId: Product Order In Provisioning
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationEvent"
+            examples:
+              Ativação em AAA Tenant:
+                value:
+                  notification:
+                    order:
+                        id: "27897"
+                        correlationOrder: 9
+                        associatedDocument: VTT001
+                        orderItem:
+                          - resource:
+                              resourceSpecification:
+                                name: LID_HSI
+                                value: "MG-VNO05-GHUA\_GPON\_1/1/17/05/16/1/1:1336/210"
+                          - resource:
+                              resourceSpecification:
+                                name: LID_TR69_VOIP
+                                value: "MG-VNO05-GHUA\_GPON\_1/1/17/05/16/1/1:1336/210"
+                        task:
+                          id: 132146546546546
+                          type: "CONFIGURACAO_NAAS_ACS"
+                          requestedStartDate: "2020-12-16T10:09:31-03:00"
+                          expectedCompletionDate: "2020-12-16T10:09:31-03:00"
+              Alteração em AAA Tenant:
+                value:
+                  notification:
+                    order:
+                        id: "27897"
+                        correlationOrder: 9
+                        associatedDocument: VTT001
+                        orderItem:
+                          - resource:
+                              resourceSpecification:
+                                name: LID_HSI
+                                value: "MG-VNO05-GHUA\_GPON\_1/1/17/05/16/1/1:1336/210"
+                          - resource:
+                              resourceSpecification:
+                                name: LID_TR69_VOIP
+                                value: "MG-VNO05-GHUA\_GPON\_1/1/17/05/16/1/1:1336/210"
+                        task:
+                          id: 132146546546546
+                          type: "MODIFICACAO_NAAS_ACS"
+                          requestedStartDate: "2020-12-16T10:09:31-03:00"
+                          expectedCompletionDate: "2020-12-16T10:09:31-03:00"
+      responses:
+        "204":
+          description: Operação realizada com sucesso
+        "400":
+          description: BadRequest
+        "401":
+          description: Unauthorized
+        "500":
+          description: ServerError
+        "503":
+          description: Unavailable
+        "504":
+          description: Timeout
+components:
+  schemas:
+    control:
+      type: object
+      properties:
+        type:
+          type: string
+          description: >-
+            Tipo da mensagem de retorno. (S - Sucesso, T - Erro Técnico, E -
+            Erro)
+          enum:
+            - S
+            - T
+            - E
+          maxLength: 1
+        message:
+          type: string
+          description: Descrição da mensagem de retorno.
+          maxLength: 250
+        code:
+          type: string
+          description: Código de Retorno.
+          maxLength: 3
+    createOrderRequest:
+      type: object
+      properties:
+        order:
+          $ref: "#/components/schemas/orderType"
+    createOrderResponse:
+      type: object
+      properties:
+        control:
+          $ref: "#/components/schemas/control"
+        order:
+          $ref: "#/components/schemas/orderType"
+    updateOrderRequest:
+      $ref: "#/components/schemas/orderType"
+    cancelOrderRequest:
+      $ref: "#/components/schemas/orderType"
+    notificationEvent:
+      $ref: "#/components/schemas/notificationType"
+    orderType:
+      properties:
+        order:
+          type: object
+          required:
+            - correlationOrder
+            - associatedDocument
+            - associatedDocumentDate
+            - type
+            - infraType
+            - customer
+            - appointment
+            - addresses
+          properties:
+            correlationOrder:
+              type: string
+              description: Número identificador da ordem informado pelo cliente
+              maxLength: 255
+            associatedDocument:
+              type: string
+              description: Número do documento associado à ordem informado pelo cliente. Os únicos caracteres especiais permitidos são o underline e o hífen.
+              maxLength: 30
+            associatedDocumentDate:
+              type: string
+              format: date-time
+              description: Data relacionada ao documento associado
+              maxLength: 25
+            type:
+              type: string
+              enum:
+                - Instalacao
+                - Retirada
+                - Bloqueio
+                - Desbloqueio
+                - AssociarCPE
+                - Modificacao de Velocidade
+              description: Tipo da Ordem de Serviço que será enviada.
+              maxLength: 50
+            infraType:
+              type: string
+              description: Tipo do produto
+              enum:
+                - FTTP
+                - FTTH
+              maxLength: 4
+            customer:
+              $ref: "#/components/schemas/customerType"
+            appointment:
+              $ref: "#/components/schemas/appointmentType"
+            addresses:
+              $ref: "#/components/schemas/addressesType"
+            products:
+              $ref: "#/components/schemas/productsType"
+            equipments:
+              $ref: "#/components/schemas/equipmentsType"
+            issue:
+              $ref: "#/components/schemas/issueType"
+            task:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: Identificador da tarefa.
+                  maxLength: 40
+                type:
+                  type: string
+                  description: Tipo da tarefa
+                  maxLength: 255
+                  enum:
+                   - "CONFIGURACAO_NAAS_ACS"
+                   - "MODIFICACAO_NAAS_ACS"
+    customerType:
+      properties:
+        customer:
+          type: object
+          required:
+            - name
+            - subscriberId
+            - phoneNumber
+          properties:
+            name:
+              type: string
+              description: Nome do cliente
+              maxLength: 255
+            subscriberId:
+              type: string
+              description: Número identificador do cliente
+              maxLength: 15
+            businessUnity:
+              type: string
+              enum:
+                - varejo
+                - empresarial
+              description: Unidade de negócio
+              maxLength: 15
+            fantasyName:
+              type: string
+              description: Nome fantasia
+              maxLength: 255
+            phoneNumber:
+              type: object
+              properties:
+                phoneNumbers:
+                  type: array
+                  description: Telefone de contato do cliente
+                  maximum: 3
+                  items:
+                    type: string
+                    maxLength: 40
+            workContact:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Nome do Contato para Obra
+                  maxLength: 255
+                email:
+                  type: string
+                  description: E-mail do Contato para Obra
+                  maxLength: 100
+                phone:
+                  type: string
+                  description: Telefone do Contato para Obra
+                  maxLength: 40
+    appointmentType:
+      properties:
+        appointment:
+          type: object
+          required:
+            - hasSlot
+            - mandatoryType
+          properties:
+            hasSlot:
+              type: boolean
+              description: Indica se há ou não um agendamento realizado
+            date:
+              type: string
+              format: date-time
+              description: Data inicial do agendamento.
+              maxLength: 25
+            mandatoryType:
+              type: string
+              description: Indica a obrigatoriedade do agendamento.
+              maxLength: 15
+              enum:
+                - Obrigatorio
+                - Permitido
+            workOrderId:
+              type: string
+              description: Número da ordem de agendamento
+              maxLength: 15
+    addressesType:
+      properties:
+        addresses:
+          type: object
+          properties:
+            address:
+              type: object
+              required:
+                - id
+                - inventoryId
+              properties:
+                id:
+                  type: number
+                  description: Identificador único do endereço
+                  maxLength: 255
+                inventoryId:
+                  type: string
+                  description: Identificador do inventário de recursos.
+                  maxLength: 255
+                reference:
+                  type: string
+                  description: Ponto de referência
+                  maxLength: 255
+                complement:
+                  $ref: "#/components/schemas/complementType"
+    productsType:
+      properties:
+        products:
+          type: object
+          properties:
+            product:
+              type: array
+              items:
+                required:
+                  - catalogId
+                  - action
+                properties:
+                  catalogId:
+                    type: string
+                    enum:
+                      - BL_100MB
+                      - BL_200MB
+                      - BL_300MB
+                      - BL_400MB
+                      - BL_500MB
+                      - BL_600MB
+                      - BL_700MB
+                      - BL_800MB
+                      - BL_900MB
+                      - BL_1000MB
+                    description: Identificador do produto no catálogo
+                    maxLength: 30
+                  action:
+                    type: string
+                    enum:
+                      - adicionar
+                      - reparar
+                      - remover
+                      - bloquear total
+                      - bloquear parcial
+                      - desbloquear total
+                      - modificar
+                    description: Ação a ser executada para o produto
+                    maxLength: 10
+    equipmentsType:
+      properties:
+        equipments:
+          type: object
+          properties:
+            equipment:
+              type: array
+              items:
+                properties:
+                  serialNumber:
+                    type: string
+                    description: Serial do equipamento
+                    maxLength: 16
+                  type:
+                    type: string
+                    description: Tipo do equipamento
+                    maxLength: 20
+                    enum:
+                      - ONT
+                  code:
+                    type: number
+                    description: Código de identificação do tipo de material
+                    maxLength: 50
+                  action:
+                    type: string
+                    description: Ação a ser realizada
+                    maxLength: 30
+                    enum:
+                      - adicionar
+    issueType:
+      properties:
+        issue:
+          type: object
+          properties:
+            code:
+              $ref: "#/components/schemas/codeType"
+            description:
+              type: string
+              description: Descrição da pendência
+              maxLength: 100
+            type:
+              type: string
+              description: Tipo de pendência
+              maxLength: 10
+              enum:
+                - CLIENTE
+                - TECNICA
+            observation:
+              type: string
+              description: Observação da pendência
+              maxLength: 255
+            userId:
+              type: string
+              description: Id do Operador que tramitou a OS
+              maxLength: 10
+            updateDate:
+              type: string
+              format: date-time
+              description: Data de atualização da pendência
+              maxLength: 25
+            action:
+              type: string
+              description: Ação da pendência
+              enum:
+                - abrir
+                - fechar
+                - redirecionar
+              maxLength: 15
+            task:
+              type: string
+              description: Tarefa onde a OS está em caso de pendência
+              maxLength: 255
+            fieldActivity:
+              type: string
+              description: Flag indicativa da atividade de campo
+              enum:
+                - "True"
+                - "False"
+              maxLength: 20
+            reason:
+              type: string
+              description: Motivo da pendência de uma OS
+              maxLength: 1000
+    codeType:
+      properties:
+        code:
+          type: number
+          description: >-
+            Código da pendência<br> 7001 - CANCELAR POR DUPLICIDADE GPON<br>
+            7004 - FALTA DE PORTA OLT<br> 7006 - PROBLEMA REFERENTE A AREA DE
+            TI<br> 7007 - PROBLEMA DE CONFIGURACAO<br> 7008 - CANCELAMENTO POR
+            INVIABILIDADE TECNICA<br> 7009 - CANCELAMENTO ERRO DE DADOS DO
+            CLIENTE<br> 7010 - PROB EQUIPAMENTO DO CLIENTE<br> 7013 - END INST
+            DIFE END VIAB<br> 7014 - REDE INTERNA DANIFICADA<br> 7015 - CANC.
+            DESISTENCIA SERVICO<br> 7016 - CLIENTE AUSENTE<br> 7017 - CLIENTE
+            SOLICITA OUTRA DATA<br> 7018 - FALTA EQUIPAMENTO / MATERIAL<br> 7020
+            - PROJETO ENGENHARIA FTTH<br> 7021 - CLIE. INTERROMPE E SOLICITA
+            REAGENDAR ATIV<br> 7022 - PROBLEMA EQUIPAMENTO OI (OLT)<br> 7024 -
+            FIBRA OPTICA BACKBONE ACESSO<br> 7029 - AGENDAMENTO DO PEDIDO<br>
+            7030 - PENDENCIA DE FALTA DE SLOT<br> 7031 - ERRO SISTEMICO NO MUA
+            IMPEDE AGENDAMENTO<br> 7033 - CANCELAMENTO DE AGENDAMENTO<br> 7035 -
+            AREA DE RISCO MOMENTANEA<br> 7036 - AREA DE RISCO INDETERMINADO<br>
+            7037 - IMPED. EXEC. P/ MOTIVO CHUVA<br> 7038 - EM PROCESSO DE
+            REALOCAR FACILIDADES<br> 7047 - ACESSO IMPOSSIBILITADO<br> 7048 -
+            RISER/CDOIA S/POT. ATEN. SPLIT<br> 7049 - ENDERECO NAO
+            LOCALIZADO<br> 7050 - PEDIDO DUPLICADO<br> 7051 - PROBLEMA DE
+            ASSOCIACAO ONT<br> 7052 - PROBLEMA RELACIONADO AO BNG<br> 7053 -
+            PROBLEMA RELACIONADO AO NASS<br> 7054 - PROBLEMA RELACIONADO AO
+            HDM<br> 7056 - PROBLEMA RELACIONADO AO VMP<br> 7058 - PROB.
+            RELACIONADO AO CORE IMS<br> 7059 - PROBLEMA RELACIONADA A TI<br>
+            7060 - PROB. RELACIONADO 8950 SAM-HSS<br> 7061 - PROB. RELACIONADO
+            PLAT. HDM<br> 7062 - PROB. RELACIONADO PLAT. AMS<br> 7065 - LOCAL
+            FECHADO<br> 7066 - VENDA INDEVIDA<br> 7067 - CANC. P/ S/ RETOR CLI
+            A. RISC<br> 7068 - REALOCAR FACILIDADE<br> 7069 - INS 2º SPLITTER EM
+            DIANTE<br> 7070 - CDO NAO CONSTRUIDO<br> 7071 - CONSTRUCAO PROJ.
+            FTTH<br> 7072 - ATUAL. CADASTRO PROJ. FTTH<br> 7073 - FALTA DOC
+            CLIENTE<br> 7074 - RISER NAO CONSTRUIDO<br> 7090 - PROB. REDE INFRA
+            REDE SECUNDARIA<br> 7091 - PROPENSAO A INEFICACIA - TECNICO<br> 7095
+            - PROPENSAO A INEFICACIA - CLIENTE<br> 7096 - RISCO - SEGURANCA DO
+            TRABALHO<br> 7104 - PLATAFORMAS BACKEND OI PLAY<br> 7105 - ALTERACAO
+            DE ENDERECO<br> 7106 - BA DE FALHA DE REDE ABERTO<br> 7107 - TRIAGEM
+            OFF LINE<br> 7002 - AGENDAMENTO FUTURO DE OBRA<br> 7041 - FALTA DE
+            MATERIAL PARA OBRA<br> 7042 - LOCAL FECHADO EM ATIV.OBRA<br> 7043 -
+            PROB. REDE EXT OI DUTO OBST<br> 7075 - CANC. POR INVIA. TEC.
+            OBRA<br> 7076 - CANC. ERRO DADOS CLI. OBRA<br> 7077 - PROB. INFRA
+            REDE CLI. OBRA<br> 7078 - CANC. DESIST. SERV.OBRA<br> 7079 - ACESSO
+            IMPO. OBRA<br> 7080 - AREA DE RISCO OBRA<br> 7081 - CANC. IMPOSS.
+            EXEC. OBRA<br> 7082 - END. N LOCA. OBRA<br> 7083 - VENDA INDEVIDA EM
+            OBRA<br> 7086 - BLOQ. ORCAMENTARIO<br> 7087 - BLOQ IMPEDIMENTO
+            CONSTRUCAO<br> 7088 - ORCAMENTO OBRA<br> 7089 - SEM CONTATO
+            PROJ/IMPL. OBRA<br> 7092 - PEDIDO DUPL. OBRA<br> 7098 - ANALISE
+            ORCAMENTO MERCADO<br> 7099 - END. CORRETO INVIAVEL<br> 7100 - SEM
+            CONTATO OBRA<br> 7103 - INVIAVEL ALT END<br> 7108 - CHUVA EM
+            OBRA<br> 7109 - AGEND. PROJETO OBRA<br> 7110 - AGEND. IMPLANTACAO
+            OBRA
+          maxLength: 5
+          enum:
+            - comment: Pendência cliente
+            - 7001
+            - 7015
+            - 7016
+            - 7017
+            - 7021
+            - 7029
+            - 7031
+            - 7033
+            - 7035
+            - 7037
+            - 7047
+            - 7049
+            - 7050
+            - 7065
+            - 7066
+            - 7067
+            - 7073
+            - 7095
+            - 7105
+            - 7042
+            - 7075
+            - 7076
+            - 7077
+            - 7078
+            - 7079
+            - 7080
+            - 7081
+            - 7082
+            - 7083
+            - 7089
+            - 7092
+            - 7098
+            - 7099
+            - 7100
+            - 7103
+            - 7108
+            - 7109
+            - 7110
+            - comment: Pendência técnica, sem ação do cliente
+            - 7004
+            - 7006
+            - 7007
+            - 7018
+            - 7020
+            - 7022
+            - 7024
+            - 7030
+            - 7036
+            - 7038
+            - 7048
+            - 7051
+            - 7052
+            - 7053
+            - 7054
+            - 7056
+            - 7058
+            - 7059
+            - 7060
+            - 7061
+            - 7062
+            - 7068
+            - 7069
+            - 7070
+            - 7071
+            - 7072
+            - 7074
+            - 7090
+            - 7091
+            - 7096
+            - 7104
+            - 7106
+            - 7107
+            - 7002
+            - 7041
+            - 7043
+            - 7086
+            - 7087
+            - 7088
+    resourceType:
+      properties:
+        resource:
+          type: object
+          description: Recursos da ordem
+          properties:
+            gponAccess:
+              type: string
+              description: Identificador do GPON
+              maxLength: 20
+            devices:
+              type: object
+              properties:
+                device:
+                  type: array
+                  items:
+                    properties:
+                      category:
+                        type: string
+                        maxLength: 4
+                        description: "Categoria do recurso"
+                      type:
+                        type: string
+                        maxLength: 50
+                        description: "Tipo de recurso"
+                      description:
+                        type: string
+                        maxLength: 255
+                        description: "Descrição do recurso"
+                      state:
+                        type: string
+                        maxLength: 15
+                        description: "Status da ativação"
+                      usageState:
+                        type: string
+                        maxLength: 10
+                        description: "Status de uso"
+                      startOperatingDate:
+                        type: string
+                        format: date-time
+                        maxLength: 25
+                        description: "Data de inicio do uso"
+                      resourceCharacteristic:
+                        type: array
+                        items:
+                          properties:
+                            name:
+                              type: string
+                              description: Descrição do item
+                              maxLength: 100
+                            value:
+                              type: string
+                              description: Valor do item
+                              maxLength: 100
+            fiberPath:
+              type: object
+              description: Caminho da fibra
+              properties:
+                items:
+                  type: object
+                  properties:
+                    item:
+                      type: array
+                      items:
+                        properties:
+                          name:
+                            type: string
+                            description: Descrição do item
+                            maxLength: 100
+                          value:
+                            type: string
+                            description: Valor do item
+                            maxLength: 100
+    notificationType:
+      properties:
+        notification:
+          type: object
+          properties:
+            date:
+              type: string
+              format: date-time
+              description: Data da Notificação
+              maxLength: 25
+            customer:
+              type: object
+              properties:
+                subscriberId:
+                  type: string
+                  description: Número identificador do cliente
+                  maxLength: 30
+            order:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: Id da ordem
+                correlationOrder:
+                  type: string
+                  description: Número identificador da ordem informado pelo cliente
+                  maxLength: 255
+                associatedDocument:
+                  type: string
+                  description: Número do documento associado à ordem informado pelo cliente. Os caracteres especiais permitidos são o underline e o hífen.
+                  maxLength: 30
+                issue:
+                  $ref: "#/components/schemas/issueType"
+                type:
+                  type: string
+                  description: Tipo do processo
+                  maxLength: 12
+                code:
+                  type: number
+                  description: Código da notificação enviada.
+                  enum:
+                    - -1
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                description:
+                  type: string
+                  description: >-
+                    Descrição do Código enviado na Notificação<br> -1 - O
+                    Equipamento já está em uso por outro cliente<br> 0 - Ordem
+                    encerrada com sucesso<br> 1  - Enviando Atualização de
+                    Ordem<br> 2  - Ordem cancelada<br> 3  - Início do Processo
+                    de Obra<br> 4  - Término do Processo de Obra
+                  maxLength: 50
+                resource:
+                  $ref: "#/components/schemas/resourceType"
+                orderItem:
+                  type: array
+                  items: 
+                    properties:
+                      resource:
+                        type: object
+                        properties:
+                          resourceSpecification:
+                            type: object
+                            properties:
+                                name:
+                                  type: string
+                                  description: Nome do recurso
+                                  maxLength: 10
+                                value: 
+                                  type: string
+                                  description: Valor do recurso
+                                  maxLength: 50    
+                task:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: Identificador da tarefa.
+                      maxLength: 40
+                    type:
+                      type: string
+                      description: Tipo da tarefa
+                      maxLength: 255
+                      enum:
+                       - "CONFIGURACAO_NAAS_ACS"
+                    requestedStartDate: 
+                      type: string 
+                      format: data-time
+                      description: Data de início solicitada.
+                      maxLength: 25
+                    expectedCompletionDate:
+                      type: string
+                      format: data-time
+                      description: Data prevista de conclusão.
+                      maxLength: 25
+    complementType:
+      properties:
+        complement:
+          type: object
+          properties:
+            complements:
+              type: array
+              items:
+                properties:
+                  type:
+                    type: string
+                    description: Tipo de Complemento
+                    maxLength: 2
+                  value:
+                    type: string
+                    description: Descrição do complemento
+                    maxLength: 255
+  responses:
+    Success:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: S
+              code: 200
+              message: OK
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: E
+              code: 400
+              message: OSB Validate action failed validation
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: E
+              code: 401
+              message: Unauthorized
+    Forbidden:
+      description: Forbidden - Scope Not Permitted
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          examples:
+            Invalid or expired credentials:
+              value:
+                control:
+                  type: E
+                  code: 403
+                  message: Forbidden - Scope Not Permitted
+            Unauthorized credentials:
+              value:
+                control:
+                  type: E
+                  code: 403
+                  message: Aplicação não autorizada ou não informada!
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: E
+              code: 404
+              message: Not Found
+    TooManyRequests:
+      description: Too Many Requests - Exceeded Quota
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: E
+              code: 429
+              message: Too Many Requests - Exceeded Quota
+    ServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: T
+              code: 500
+              message: Internal Server Error
+    Unavailable:
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: T
+              code: 503
+              message: Service Unavailable
+    Timeout:
+      description: Gateway Timeout
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/control"
+          example:
+            control:
+              type: T
+              code: 504
+              message: Gateway Timeout
